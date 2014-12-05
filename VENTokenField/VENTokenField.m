@@ -43,6 +43,7 @@ static const CGFloat VENTokenFieldDefaultMaxHeight          = 150.0;
 @property (strong, nonatomic) VENBackspaceTextField *invisibleTextField;
 @property (strong, nonatomic) VENBackspaceTextField *inputTextField;
 @property (strong, nonatomic) UIColor *colorScheme;
+@property (strong, nonatomic) UIFont *font;
 @property (strong, nonatomic) UILabel *collapsedLabel;
 
 @end
@@ -145,6 +146,16 @@ static const CGFloat VENTokenFieldDefaultMaxHeight          = 150.0;
     }
 }
 
+- (void)setFont:(UIFont *)font
+{
+    _font = font;
+    self.collapsedLabel.font = font;
+    self.inputTextField.font = font;
+    for (VENToken *token in self.tokens) {
+        token.font  = font;
+    }
+}
+
 - (NSString *)inputText
 {
     return self.inputTextField.text;
@@ -243,6 +254,7 @@ static const CGFloat VENTokenFieldDefaultMaxHeight          = 150.0;
     inputTextField.text = @"";
     inputTextField.frame = CGRectMake(*currentX, *currentY + 1, inputTextFieldWidth, [self heightForToken] - 1);
     inputTextField.tintColor = self.colorScheme;
+    inputTextField.font = self.font;
     [self.scrollView addSubview:inputTextField];
 }
 
@@ -378,6 +390,7 @@ static const CGFloat VENTokenFieldDefaultMaxHeight          = 150.0;
         _inputTextField.accessibilityLabel = NSLocalizedString(@"To", nil);
         _inputTextField.autocorrectionType = self.autocorrectionType;
         _inputTextField.tintColor = self.colorScheme;
+        _inputTextField.font = self.font;
         _inputTextField.delegate = self;
         _inputTextField.placeholder = self.placeholderText;
         [_inputTextField addTarget:self action:@selector(inputTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];

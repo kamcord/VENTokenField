@@ -73,6 +73,12 @@
     [self setHighlighted:_highlighted];
 }
 
+- (void)setFont:(UIFont *)font
+{
+    _font = font;
+    self.titleLabel.font = font;
+}
+
 
 #pragma mark - Private
 

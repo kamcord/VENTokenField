@@ -387,7 +387,7 @@ static const CGFloat VENTokenFieldDefaultMaxHeight          = 150.0;
         _inputTextField = [[VENBackspaceTextField alloc] init];
         [_inputTextField setKeyboardType:self.inputTextFieldKeyboardType];
         _inputTextField.textColor = self.inputTextFieldTextColor;
-        _inputTextField.font = self.font ? self.font :[UIFont fontWithName:@"HelveticaNeue" size:15.5];
+        _inputTextField.font = self.font ? self.font : [UIFont fontWithName:@"HelveticaNeue" size:15.5];
         _inputTextField.accessibilityLabel = NSLocalizedString(@"To", nil);
         _inputTextField.autocorrectionType = self.autocorrectionType;
         _inputTextField.tintColor = self.colorScheme;

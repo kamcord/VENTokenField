@@ -151,6 +151,7 @@ static const CGFloat VENTokenFieldDefaultMaxHeight          = 150.0;
     _font = font;
     self.collapsedLabel.font = font;
     self.inputTextField.font = font;
+    self.toLabel.font = font;
     for (VENToken *token in self.tokens) {
         token.font  = font;
     }

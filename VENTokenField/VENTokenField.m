@@ -294,6 +294,7 @@ static const CGFloat VENTokenFieldDefaultMaxHeight          = 150.0;
         NSString *title = [self titleForTokenAtIndex:i];
         VENToken *token = [[VENToken alloc] init];
         token.colorScheme = self.colorScheme;
+        token.font = self.font;
 
         __weak VENToken *weakToken = token;
         __weak VENTokenField *weakSelf = self;
